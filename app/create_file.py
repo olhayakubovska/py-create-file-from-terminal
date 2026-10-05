@@ -2,6 +2,8 @@ import os
 import sys
 from datetime import datetime
 
+TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S"
+
 
 def get_flag_values(arguments: list, flag: str) -> list:
     if flag not in arguments:
@@ -21,7 +23,7 @@ def write_content(file_path: str) -> None:
     with open(file_path, "a") as output_file:
         if is_existing_file:
             output_file.write("\n")
-        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        current_time = datetime.now().strftime(TIMESTAMP_FORMAT)
         output_file.write(f"{current_time}\n")
 
         line_number = 1
